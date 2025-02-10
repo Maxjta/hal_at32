@@ -45,7 +45,7 @@ zephyr_library_sources_ifdef(CONFIG_USE_AT32_ERTC     ${at32_std_src_dir}/${CONF
 zephyr_library_sources_ifdef(CONFIG_USE_AT32_SDIO     ${at32_std_src_dir}/${CONFIG_SOC_SERIES}_sdio.c)
 zephyr_library_sources_ifdef(CONFIG_USE_AT32_SPI      ${at32_std_src_dir}/${CONFIG_SOC_SERIES}_spi.c)
 zephyr_library_sources_ifdef(CONFIG_USE_AT32_SYSCFG   ${at32_std_src_dir}/${CONFIG_SOC_SERIES}_scfg.c)
-zephyr_library_sources_ifdef(CONFIG_USE_AT32_TIMER    ${at32_std_src_dir}/${CONFIG_SOC_SERIES}_timer.c)
+zephyr_library_sources_ifdef(CONFIG_USE_AT32_TIMER    ${at32_std_src_dir}/${CONFIG_SOC_SERIES}_tmr.c)
 zephyr_library_sources_ifdef(CONFIG_USE_AT32_USART    ${at32_std_src_dir}/${CONFIG_SOC_SERIES}_usart.c)
 zephyr_library_sources_ifdef(CONFIG_USE_AT32_WWDT     ${at32_std_src_dir}/${CONFIG_SOC_SERIES}_wwdt.c)
 zephyr_library_sources_ifdef(CONFIG_USE_AT32_USB      ${at32_std_src_dir}/${CONFIG_SOC_SERIES}_usb.c)

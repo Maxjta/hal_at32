@@ -489,11 +489,11 @@
 	AT32_PINMUX_AF('A', 13, AF0)
 
 /* OTG1_D+ */
-#define OTG1_D+_PA12 \
+#define OTG1_DP_PA12 \
 	AT32_PINMUX_AF('A', 12, AF10)
 
 /* OTG1_D- */
-#define OTG1_D-_PA11 \
+#define OTG1_DM_PA11 \
 	AT32_PINMUX_AF('A', 11, AF10)
 
 /* OTG1_ID */
@@ -513,11 +513,11 @@
 	AT32_PINMUX_AF('A', 9, AF10)
 
 /* OTG2_D+ */
-#define OTG2_D+_PB15 \
+#define OTG2_DP_PB15 \
 	AT32_PINMUX_AF('B', 15, AF12)
 
 /* OTG2_D- */
-#define OTG2_D-_PB14 \
+#define OTG2_DM_PB14 \
 	AT32_PINMUX_AF('B', 14, AF12)
 
 /* OTG2_ID */
@@ -780,9 +780,9 @@
 #define SPI3_MOSI_PB5 \
 	AT32_PINMUX_AF('B', 5, AF6)
 #define SPI3_MOSI_PC1 \
-	AT32_PINMUX_AF('C', 1 AF5)
+	AT32_PINMUX_AF('C', 1, AF5)
 #define SPI3_MOSI_PC12 \
-	AT32_PINMUX_AF('C', 12 AF6)
+	AT32_PINMUX_AF('C', 12, AF6)
 
 /* SPI3_SCK */
 #define SPI3_SCK_PB12 \
@@ -827,30 +827,6 @@
 /* SWO */
 #define SWO_PB3 \
 	AT32_PINMUX_AF('B', 3, AF0)
-
-/* TMR10_CH1 */
-#define TMR10_CH1_PB8 \
-	AT32_PINMUX_AF('B', 8, AF3)
-
-/* TMR11_CH1 */
-#define TMR11_CH1_PB9 \
-	AT32_PINMUX_AF('B', 9, AF3)
-
-/* TMR12_CH1 */
-#define TMR12_CH1_PB14 \
-	AT32_PINMUX_AF('B', 14, AF9)
-
-/* TMR12_CH2 */
-#define TMR12_CH2_PB15 \
-	AT32_PINMUX_AF('B', 15, AF9)
-
-/* TMR13_CH1 */
-#define TMR13_CH1_PA6 \
-	AT32_PINMUX_AF('A', 6, AF9)
-
-/* TMR14_CH1 */
-#define TMR14_CH1_PA7 \
-	AT32_PINMUX_AF('A', 7, AF9)
 
 /* TMR1_BRK */
 #define TMR1_BRK_PA6 \
@@ -909,6 +885,8 @@
 	AT32_PINMUX_AF('A', 5, AF1)
 #define TMR2_CH1_PB8 \
 	AT32_PINMUX_AF('B', 8, AF1)
+#define TMR2_CH1_PF4 \
+	AT32_PINMUX_AF('F', 4, AF1)
 
 /* TMR2_CH2 */
 #define TMR2_CH2_PA1 \
@@ -917,6 +895,8 @@
 	AT32_PINMUX_AF('B', 3, AF1)
 #define TMR2_CH2_PB9 \
 	AT32_PINMUX_AF('B', 9, AF1)
+#define TMR2_CH2_PF5 \
+	AT32_PINMUX_AF('F', 5, AF1)
 
 /* TMR2_CH3 */
 #define TMR2_CH3_PA2 \
@@ -927,8 +907,6 @@
 /* TMR2_CH4 */
 #define TMR2_CH4_PA3 \
 	AT32_PINMUX_AF('A', 3, AF1)
-#define TMR2_CH4_PB11 \
-	AT32_PINMUX_AF('B', 11, AF1)
 #define TMR2_CH4_PB2 \
 	AT32_PINMUX_AF('B', 2, AF1)
 
@@ -947,20 +925,33 @@
 	AT32_PINMUX_AF('A', 6, AF2)
 #define TMR3_CH1_PB4 \
 	AT32_PINMUX_AF('B', 4, AF2)
+#define TMR3_CH1_PC6 \
+	AT32_PINMUX_AF('C', 6, AF2)
 
 /* TMR3_CH2 */
 #define TMR3_CH2_PA7 \
 	AT32_PINMUX_AF('A', 7, AF2)
 #define TMR3_CH2_PB5 \
 	AT32_PINMUX_AF('B', 5, AF2)
+#define TMR3_CH2_PC7 \
+	AT32_PINMUX_AF('C', 7, AF2)
 
 /* TMR3_CH3 */
 #define TMR3_CH3_PB0 \
 	AT32_PINMUX_AF('B', 0, AF2)
+	#define TMR3_CH3_PC8 \
+	AT32_PINMUX_AF('C', 8, AF2)
 
 /* TMR3_CH4 */
 #define TMR3_CH4_PB1 \
 	AT32_PINMUX_AF('B', 1, AF2)
+#define TMR3_CH4_PC9 \
+	AT32_PINMUX_AF('C', 9, AF2)
+	
+#define TMR3_EXT_PB2 \
+	AT32_PINMUX_AF('B', 2, AF2)
+#define TMR3_EXT_PD2 \
+	AT32_PINMUX_AF('D', 2, AF2)
 
 /* TMR4_CH1 */
 #define TMR4_CH1_PB6 \
@@ -1033,11 +1024,71 @@
 /* TMR9_CH1 */
 #define TMR9_CH1_PA2 \
 	AT32_PINMUX_AF('A', 2, AF3)
+#define TMR9_CH1_PC4 \
+	AT32_PINMUX_AF('C', 4, AF3)
+	
+#define TMR9_CH1C_PA1 \
+	AT32_PINMUX_AF('A', 1, AF3)
 
 /* TMR9_CH2 */
 #define TMR9_CH2_PA3 \
 	AT32_PINMUX_AF('A', 3, AF3)
+#define TMR9_CH2_PC5 \
+	AT32_PINMUX_AF('C', 5, AF3)
+#define TMR9_CH2C_PA0 \
+	AT32_PINMUX_AF('A', 0, AF3)
 
+#define TMR9_BRK_PA8 \
+	AT32_PINMUX_AF('A', 8, AF3)
+
+/* TMR10_CH1 */
+#define TMR10_CH1_PB8 \
+	AT32_PINMUX_AF('B', 8, AF3)
+#define TMR10_CH1C_PB6 \
+	AT32_PINMUX_AF('B', 6, AF3)
+#define TMR10_BRK_PB5 \
+	AT32_PINMUX_AF('B', 5, AF3)
+	
+/* TMR11_CH1 */
+#define TMR11_CH1_PB9 \
+	AT32_PINMUX_AF('B', 9, AF3)
+#define TMR11_CH1_PC12 \
+	AT32_PINMUX_AF('C', 12, AF3)
+#define TMR11_CH1C_PB7 \
+	AT32_PINMUX_AF('B', 7, AF3)
+#define TMR11_BRK_PB4 \
+	AT32_PINMUX_AF('B', 4, AF3)
+
+/* TMR12_CH1 */
+#define TMR12_CH1_PB14 \
+	AT32_PINMUX_AF('B', 14, AF9)
+
+/* TMR12_CH2 */
+#define TMR12_CH2_PB15 \
+	AT32_PINMUX_AF('B', 15, AF9)
+
+/* TMR13_CH1 */
+#define TMR13_CH1_PA6 \
+	AT32_PINMUX_AF('A', 6, AF9)
+#define TMR13_CH1_PC4 \
+	AT32_PINMUX_AF('C', 4, AF9)
+#define TMR13_CH1C_PA5 \
+	AT32_PINMUX_AF('A', 5, AF9)
+#define TMR13_CH1C_PC5 \
+	AT32_PINMUX_AF('C', 5, AF9)
+
+/* TMR14_CH1 */
+#define TMR14_CH1_PA7 \
+	AT32_PINMUX_AF('A', 7, AF9)
+#define TMR14_CH1_PA4 \
+	AT32_PINMUX_AF('A', 4, AF9)
+#define TMR14_CH1_PB1 \
+	AT32_PINMUX_AF('B', 1, AF9)
+#define TMR14_CH1C_PB2 \
+	AT32_PINMUX_AF('B', 2, AF9)
+#define TMR14_BRK_PA9 \
+	AT32_PINMUX_AF('A', 9, AF9)
+	
 /* UART4_RX */
 #define UART4_RX_PA1 \
 	AT32_PINMUX_AF('A', 1, AF8)
