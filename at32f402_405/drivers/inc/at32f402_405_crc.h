@@ -153,13 +153,13 @@ typedef struct
     } poly_bit;
   };
 
-} crc_type;
+} at32_crc_type;
 
 /**
   * @}
   */
 
-#define CRC                              ((crc_type *) CRC_BASE)
+#define CRC                              ((at32_crc_type *) CRC_BASE)
 
 /** @defgroup CRC_exported_functions
   * @{
