@@ -5,4 +5,5 @@
 
 #if defined(CONFIG_SOC_SERIES_AT32F402_405)
 #include <at32f402_405_flash.h>
+#define FLASH_WAIT_CYCLE      1
 #endif
