@@ -316,10 +316,6 @@ typedef __I int32_t vsc32;    /*!< read only */
 typedef __I int16_t vsc16;    /*!< read only */
 typedef __I int8_t  vsc8;     /*!< read only */
 
-typedef uint32_t u32;
-typedef uint16_t u16;
-typedef uint8_t  u8;
-
 typedef const uint32_t uc32;  /*!< read only */
 typedef const uint16_t uc16;  /*!< read only */
 typedef const uint8_t  uc8;   /*!< read only */
