@@ -567,6 +567,7 @@ static void hal_usbd_ept_write(hal_udc_handle *pudc, const uint8_t ep, uint8_t *
       }
     }
   }
+#ifdef OTG_USE_DMA
   if(pudc->udc_config.dma_en == TRUE)
   {
     if(ept_info->trans_buf != 0)
@@ -581,6 +582,7 @@ static void hal_usbd_ept_write(hal_udc_handle *pudc, const uint8_t ep, uint8_t *
   }
   
   else
+#endif
   {
     if(ept_info->trans_type == EPT_ISO_TYPE)
     {
@@ -654,12 +656,12 @@ static void hal_usbd_ept_read(hal_udc_handle *pudc, uint8_t ept_addr, uint8_t *b
     /* set packet count */
     ept_out->doeptsiz_bit.pktcnt = pktcnt;
   }
-
+#ifdef OTG_USE_DMA
   if(pudc->udc_config.dma_en == TRUE && buffer != 0)
   {
     ept_out->doepdma = (uint32_t)(ept_info->trans_buf);
   }
-
+#endif
   if(ept_info->trans_type == EPT_ISO_TYPE)
   {
    if((dev->dsts_bit.soffn & 0x01) == 0)
@@ -800,6 +802,7 @@ static void hal_usbd_init(hal_udc_handle *pudc)
 
   /* init global register */
   usb_global_init(usbx);
+
   if(pudc->udc_config.dma_en == TRUE && hs_phytype)
   {
     usbx->gahbcfg |= 1 << 5 | 3 << 1;
@@ -808,6 +811,7 @@ static void hal_usbd_init(hal_udc_handle *pudc)
   {
     pudc->udc_config.dma_en = FALSE;
   }
+
   /* set device mode */
   usb_global_set_mode(usbx, OTG_DEVICE_MODE);
   
@@ -959,7 +963,7 @@ static void usbd_rxflvl_handler(hal_udc_handle *pudc)
   usb_global_interrupt_enable(usbx, USB_OTG_RXFLVL_INT, TRUE);
 
 }
-
+#ifdef OTG_USE_DMA
 static void usbd_ept0_out_dma_set(hal_udc_handle *pudc)
 {
   otg_eptout_type *usb_outept = USB_OUTEPT(pudc->usb_reg, 0);
@@ -972,7 +976,7 @@ static void usbd_ept0_out_dma_set(hal_udc_handle *pudc)
   USB_OUTEPT(pudc->usb_reg, 0)->doepctl_bit.usbacept = TRUE;
   USB_OUTEPT(pudc->usb_reg, 0)->doepctl_bit.eptena = TRUE;
 }
-
+#endif
 
 static void usb_write_empty_txfifo(hal_udc_handle *pudc, uint32_t ept_num)
 {
@@ -1013,7 +1017,9 @@ static void usbd_inept_handler(hal_udc_handle *pudc)
   otg_global_type *usbx = pudc->usb_reg;
   uint32_t ept_num = 0, ept_int;
   uint32_t intsts;
+#ifdef OTG_USE_DMA
   usb_ept_info *ept_info;
+#endif
 
   /*get all endpoint interrut */
   intsts = usb_get_all_in_interrupt(usbx);
@@ -1029,7 +1035,7 @@ static void usbd_inept_handler(hal_udc_handle *pudc)
       {
         OTG_DEVICE(usbx)->diepempmsk &= ~(1 << ept_num);
         usb_ept_in_clear(usbx, ept_num , USB_OTG_DIEPINT_XFERC_FLAG);
-
+#ifdef OTG_USE_DMA
         if(pudc->udc_config.dma_en == TRUE)
         {
           ept_info = &pudc->ept_in[ept_num];
@@ -1041,7 +1047,7 @@ static void usbd_inept_handler(hal_udc_handle *pudc)
             usbd_ept0_out_dma_set(pudc);
           }
         }
-
+#endif
         hal_udc_data_in_callback(pudc, ept_num);
       }
 
@@ -1104,7 +1110,7 @@ static void usbd_outept_handler(hal_udc_handle *pudc)
       {
         usb_ept_out_clear(usbx, ept_num , USB_OTG_DOEPINT_XFERC_FLAG);
         epsts = USB_OUTEPT(usbx, ept_num)->doepint;
-    
+#ifdef OTG_USE_DMA    
         if (pudc->udc_config.dma_en == TRUE)
         {
           if((epsts & USB_OTG_DOEPINT_SETUP_FLAG) == USB_OTG_DOEPINT_SETUP_FLAG)
@@ -1146,6 +1152,7 @@ static void usbd_outept_handler(hal_udc_handle *pudc)
           }
         }
         else
+  #endif
         {
           if((ept_num == 0) && (pudc->ept_out[ept_num].total_len == 0))
           {
@@ -1160,18 +1167,20 @@ static void usbd_outept_handler(hal_udc_handle *pudc)
       {
         usb_ept_out_clear(usbx, ept_num , USB_OTG_DOEPINT_SETUP_FLAG);
         epsts = USB_OUTEPT(usbx, ept_num)->doepint;
+#ifdef USB_OTG_DOEPINT_STUPPKTRCVD_FLAG  
         if((epsts & USB_OTG_DOEPINT_STUPPKTRCVD_FLAG) == USB_OTG_DOEPINT_STUPPKTRCVD_FLAG)
         {
           usb_ept_out_clear(usbx, ept_num , USB_OTG_DOEPINT_STUPPKTRCVD_FLAG);
         }
-        
+#endif 
         hal_udc_data_setup_callback(pudc);
-              
+ #ifdef OTG_USE_DMA             
         if(pudc->udc_config.dma_en == TRUE)
         {
           usb_ept0_start(pudc->usb_reg);
           usbd_ept0_out_dma_set(pudc);
         }
+#endif
       }
 
       /* endpoint disable interrupt */
@@ -1179,10 +1188,12 @@ static void usbd_outept_handler(hal_udc_handle *pudc)
       {
         usb_ept_out_clear(usbx, ept_num , USB_OTG_DOEPINT_OUTTEPD_FLAG);
       }
+#ifdef USB_OTG_DOEPINT_STSPHRCVD_FLAG  
       if(ept_int & USB_OTG_DOEPINT_STSPHRCVD_FLAG)
       {
         usb_ept_out_clear(usbx, ept_num , USB_OTG_DOEPINT_STSPHRCVD_FLAG);
       }
+#endif
       if(ept_int & USB_OTG_DOEPINT_EPTDISD_FLAG)
       {
         usb_ept_out_clear(usbx, ept_num , USB_OTG_DOEPINT_EPTDISD_FLAG);
@@ -1246,11 +1257,12 @@ static void usbd_reset_handler(hal_udc_handle *pudc)
 
   /* enable endpoint 0 */
   usb_ept0_start(usbx);
-
+#ifdef OTG_USE_DMA
   if(pudc->udc_config.dma_en == TRUE)
   {
     usbd_ept0_out_dma_set(pudc);
   }
+#endif
 }
 
 static void usbd_enumdone_handler(hal_udc_handle *pudc)

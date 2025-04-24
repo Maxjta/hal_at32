@@ -6,3 +6,8 @@
 #if defined(CONFIG_SOC_SERIES_AT32F402_405)
 #include <at32f402_405_can.h>
 #endif
+
+#if defined(CONFIG_SOC_SERIES_AT32F423)
+#include <at32f423_can.h>
+#endif
+

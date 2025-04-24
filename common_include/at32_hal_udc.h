@@ -6,7 +6,6 @@
 #define __HAL_USB_H
 
 #include "at32_usb.h"
-//#include "at32f402_405_usb.h"
 
 #define USB_HIGH_SPEED    0
 #define USB_FULL_SPEED    1

@@ -7,3 +7,8 @@
 #include <at32f402_405_flash.h>
 #define FLASH_WAIT_CYCLE      1
 #endif
+
+#if defined(CONFIG_SOC_SERIES_AT32F423)
+#include <at32f423_flash.h>
+#define FLASH_WAIT_CYCLE      1
+#endif
