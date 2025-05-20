@@ -1201,3 +1201,4 @@
 /* XMC_SDNWE */
 #define XMC_SDNWE_PA7 \
 	AT32_PIN_MUX('A', 7, MUX_12)
+
