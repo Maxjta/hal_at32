@@ -3,6 +3,8 @@
   * @file     at32f423_def.h
   * @brief    at32f423 macros header file
   **************************************************************************
+  * Copyright (c) 2023, ARTERY Technology Inc.
+  *
   *                       Copyright notice & Disclaimer
   *
   * The software Board Support Package (BSP) that is made available to

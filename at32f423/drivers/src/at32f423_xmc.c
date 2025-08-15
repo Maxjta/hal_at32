@@ -3,6 +3,8 @@
   * @file     at32f423_xmc.c
   * @brief    contains all the functions for the xmc firmware library
   **************************************************************************
+  * Copyright (c) 2023, ARTERY Technology Inc.
+  *
   *                       Copyright notice & Disclaimer
   *
   * The software Board Support Package (BSP) that is made available to

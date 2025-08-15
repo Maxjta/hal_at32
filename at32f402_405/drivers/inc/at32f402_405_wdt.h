@@ -3,6 +3,8 @@
   * @file     at32f402_405_wdt.h
   * @brief    at32f402_405 wdt header file
   **************************************************************************
+  * Copyright (c) 2023, ARTERY Technology Inc.
+  *
   *                       Copyright notice & Disclaimer
   *
   * The software Board Support Package (BSP) that is made available to

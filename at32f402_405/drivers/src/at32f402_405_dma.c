@@ -3,6 +3,8 @@
   * @file     at32f402_405_dma.c
   * @brief    contains all the functions for the dma firmware library
   **************************************************************************
+  * Copyright (c) 2023, ARTERY Technology Inc.
+  *
   *                       Copyright notice & Disclaimer
   *
   * The software Board Support Package (BSP) that is made available to 

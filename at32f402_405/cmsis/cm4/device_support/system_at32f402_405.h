@@ -3,6 +3,8 @@
   * @file     system_at32f402_405.h
   * @brief    cmsis cortex-m4 system header file.
   **************************************************************************
+  * Copyright (c) 2023, ARTERY Technology Inc.
+  *
   *                       Copyright notice & Disclaimer
   *
   * The software Board Support Package (BSP) that is made available to 
