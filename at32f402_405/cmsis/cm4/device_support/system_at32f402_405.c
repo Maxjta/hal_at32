@@ -3,9 +3,8 @@
   * @file     system_at32f402_405.c
   * @brief    contains all the functions for cmsis cortex-m4 system source file
   **************************************************************************
-  * Copyright (c) 2023, ARTERY Technology Inc.
   *
-  *                       Copyright notice & Disclaimer
+  * Copyright (c) 2025, Artery Technology, All rights reserved.
   *
   * The software Board Support Package (BSP) that is made available to 
   * download from Artery official website is the copyrighted work of Artery. 
