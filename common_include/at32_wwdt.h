@@ -10,3 +10,7 @@
 #if defined(CONFIG_SOC_SERIES_AT32F423)
 #include <at32f423_wwdt.h>
 #endif
+
+#if defined(CONFIG_SOC_SERIES_AT32F435_437)
+#include <at32f435_437_wwdt.h>
+#endif

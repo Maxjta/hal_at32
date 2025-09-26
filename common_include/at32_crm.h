@@ -12,3 +12,8 @@
 #include <at32f423_crm.h>
 #define CRM_USB_DIV
 #endif
+
+#if defined(CONFIG_SOC_SERIES_AT32F435_437)
+#include <at32f435_437_crm.h>
+#define CRM_USB_DIV
+#endif

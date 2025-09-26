@@ -12,3 +12,8 @@
 #include <at32f423_flash.h>
 #define FLASH_WAIT_CYCLE      1
 #endif
+
+#if defined(CONFIG_SOC_SERIES_AT32F435_437)
+#include <at32f435_437_flash.h>
+#define FLASH_FDIV
+#endif
