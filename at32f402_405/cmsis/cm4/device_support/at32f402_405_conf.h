@@ -26,6 +26,8 @@
 extern "C" {
 #endif
 
+#include <zephyr/drivers/clock_control/at32_clock_control.h>
+
 /**
   * @brief in the following line adjust the value of high speed external crystal (hext)
   * used in your application
@@ -35,7 +37,11 @@ extern "C" {
   *
   */
 #if !defined  HEXT_VALUE
+#ifdef AT32_HEXT_FREQ
+#define HEXT_VALUE                       AT32_HEXT_FREQ /*!< value of the high speed external crystal in hz */
+#else
 #define HEXT_VALUE                       ((uint32_t)12000000) /*!< value of the high speed external crystal in hz */
+#endif
 #endif
 
 /**
