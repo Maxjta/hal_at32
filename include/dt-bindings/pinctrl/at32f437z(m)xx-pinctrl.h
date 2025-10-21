@@ -70,6 +70,136 @@
 #define ADC1_IN15_PC5 \
 	AT32_PIN_MUX('C', 5, ANALOG)
 
+/* ADC2 */
+/* ADC2_IN0 */
+#define ADC2_IN0_PA0 \
+	AT32_PIN_MUX('A', 0, ANALOG)
+
+/* ADC2_IN1 */
+#define ADC2_IN1_PA1 \
+	AT32_PIN_MUX('A', 1, ANALOG)
+
+/* ADC2_IN2 */
+#define ADC2_IN2_PA2 \
+	AT32_PIN_MUX('A', 2, ANALOG)
+
+/* ADC2_IN3 */
+#define ADC2_IN3_PA3 \
+	AT32_PIN_MUX('A', 3, ANALOG)
+
+/* ADC2_IN4 */
+#define ADC2_IN4_PA4 \
+	AT32_PIN_MUX('A', 4, ANALOG)
+
+/* ADC2_IN5 */
+#define ADC2_IN5_PA5 \
+	AT32_PIN_MUX('A', 5, ANALOG)
+
+/* ADC2_IN6 */
+#define ADC2_IN6_PA6 \
+	AT32_PIN_MUX('A', 6, ANALOG)
+
+/* ADC2_IN7 */
+#define ADC2_IN7_PA7 \
+	AT32_PIN_MUX('A', 7, ANALOG)
+
+/* ADC2_IN8 */
+#define ADC2_IN8_PB0 \
+	AT32_PIN_MUX('B', 0, ANALOG)
+
+/* ADC2_IN9 */
+#define ADC2_IN9_PB1 \
+	AT32_PIN_MUX('B', 1, ANALOG)
+	
+/* ADC2_IN10 */
+#define ADC2_IN10_PC0 \
+	AT32_PIN_MUX('C', 0, ANALOG)
+	
+/* ADC2_IN11 */
+#define ADC2_IN11_PC1 \
+	AT32_PIN_MUX('C', 1, ANALOG)
+
+/* ADC2_IN12 */
+#define ADC2_IN12_PC2 \
+	AT32_PIN_MUX('C', 2, ANALOG)
+
+/* ADC2_IN13 */
+#define ADC2_IN13_PC3 \
+	AT32_PIN_MUX('C', 3, ANALOG)
+
+/* ADC2_IN14 */
+#define ADC2_IN14_PC4 \
+	AT32_PIN_MUX('C', 4, ANALOG)
+
+/* ADC2_IN15 */
+#define ADC2_IN15_PC5 \
+	AT32_PIN_MUX('C', 5, ANALOG)
+
+/* ADC3 */
+/* ADC3_IN0 */
+#define ADC3_IN0_PA0 \
+	AT32_PIN_MUX('A', 0, ANALOG)
+
+/* ADC3_IN1 */
+#define ADC3_IN1_PA1 \
+	AT32_PIN_MUX('A', 1, ANALOG)
+
+/* ADC3_IN2 */
+#define ADC3_IN2_PA2 \
+	AT32_PIN_MUX('A', 2, ANALOG)
+
+/* ADC3_IN3 */
+#define ADC3_IN3_PA3 \
+	AT32_PIN_MUX('A', 3, ANALOG)
+
+/* ADC3_IN4 */
+#define ADC3_IN4_PF6 \
+	AT32_PIN_MUX('F', 6, ANALOG)
+
+/* ADC3_IN5 */
+#define ADC3_IN5_PF7 \
+	AT32_PIN_MUX('F', 7, ANALOG)
+
+/* ADC3_IN6 */
+#define ADC3_IN6_PF8 \
+	AT32_PIN_MUX('F', 8, ANALOG)
+
+/* ADC3_IN7 */
+#define ADC3_IN7_PF9 \
+	AT32_PIN_MUX('F', 9, ANALOG)
+
+/* ADC3_IN8 */
+#define ADC3_IN8_PF10 \
+	AT32_PIN_MUX('F', 10, ANALOG)
+
+/* ADC3_IN9 */
+#define ADC3_IN9_PF3 \
+	AT32_PIN_MUX('F', 3, ANALOG)
+	
+/* ADC3_IN10 */
+#define ADC3_IN10_PC0 \
+	AT32_PIN_MUX('C', 0, ANALOG)
+	
+/* ADC3_IN11 */
+#define ADC3_IN11_PC1 \
+	AT32_PIN_MUX('C', 1, ANALOG)
+
+/* ADC3_IN12 */
+#define ADC3_IN12_PC2 \
+	AT32_PIN_MUX('C', 2, ANALOG)
+
+/* ADC3_IN13 */
+#define ADC3_IN13_PC3 \
+	AT32_PIN_MUX('C', 3, ANALOG)
+
+/* ADC3_IN14 */
+#define ADC3_IN14_PF4 \
+	AT32_PIN_MUX('F', 4, ANALOG)
+
+/* ADC3_IN15 */
+#define ADC3_IN15_PF5 \
+	AT32_PIN_MUX('F', 5, ANALOG)
+
 /* ANALOG */
 #define ANALOG_PA0 \
 	AT32_PIN_MUX('A', 0, ANALOG)
@@ -190,6 +320,8 @@
 	AT32_PIN_MUX('B', 8, MUX_9)
 #define CAN1_RX_PD0 \
 	AT32_PIN_MUX('D', 0, MUX_9)
+#define CAN1_RX_PG0 \
+	AT32_PIN_MUX('G', 0, MUX_9)
 
 /* CAN1_TX */
 #define CAN1_TX_PA12 \
@@ -198,19 +330,21 @@
 	AT32_PIN_MUX('B', 9, MUX_9)
 #define CAN1_TX_PD1 \
 	AT32_PIN_MUX('D', 1, MUX_9)
+#define CAN1_TX_PG1 \
+	AT32_PIN_MUX('G', 1, MUX_9)
 
 
 /* CAN2_RX */
-#define CAN2_RX_PA2 \
-	AT32_PIN_MUX('A', 2, MUX_9)
+#define CAN2_RX_PG11 \
+	AT32_PIN_MUX('G', 11, MUX_9)
 #define CAN2_RX_PB12 \
 	AT32_PIN_MUX('B', 12, MUX_9)
 #define CAN2_RX_PB5 \
 	AT32_PIN_MUX('B', 5, MUX_9)
 
 /* CAN2_TX */
-#define CAN2_TX_PA3 \
-	AT32_PIN_MUX('A', 3, MUX_9)
+#define CAN2_TX_PG12 \
+	AT32_PIN_MUX('G', 12, MUX_9)
 #define CAN2_TX_PB13 \
 	AT32_PIN_MUX('B', 13, MUX_9)
 #define CAN2_TX_PB6 \
@@ -219,18 +353,14 @@
 /* CLKOUT1 */
 #define CLKOUT1_PA8 \
 	AT32_PIN_MUX('A', 8, MUX_0)
-#define CLKOUT1_PA9 \
-	AT32_PIN_MUX('A', 9, MUX_0)
 #define CLKOUT1_PC9 \
 	AT32_PIN_MUX('C', 9, MUX_0)
-#define CLKOUT1_PB13 \
-	AT32_PIN_MUX('B', 13, MUX_0)
+#define CLKOUT1_PE4 \
+	AT32_PIN_MUX('E', 4, MUX_0)
 
 /* ERTC_REFIN */
 #define ERTC_REFIN_PB15 \
 	AT32_PIN_MUX('B', 15, MUX_0)
-#define ERTC_REFIN_PA10 \
-	AT32_PIN_MUX('A', 10, MUX_0)
 
 /* EVENTOUT */
 #define EVENTOUT_PA0 \
@@ -306,18 +436,16 @@
 
 
 /* I2C1_SCL */
-#define I2C1_SCL_PA4 \
-	AT32_PIN_MUX('A', 4, MUX_4)
 #define I2C1_SCL_PA9 \
 	AT32_PIN_MUX('A', 9, MUX_8)
 #define I2C1_SCL_PB6 \
 	AT32_PIN_MUX('B', 6, MUX_4)
 #define I2C1_SCL_PB8 \
 	AT32_PIN_MUX('B', 8, MUX_4)
-#define I2C1_SCL_PC0 \
-	AT32_PIN_MUX('C', 0, MUX_7)
+#define I2C1_SCL_PH1 \
+	AT32_PIN_MUX('H', 0, MUX_4)
 #define I2C1_SCL_PC6 \
-	AT32_PIN_MUX('C', 0, MUX_4)
+	AT32_PIN_MUX('C', 6, MUX_4)
 
 /* I2C1_SDA */
 #define I2C1_SDA_PA10 \
@@ -326,18 +454,14 @@
 	AT32_PIN_MUX('B', 7, MUX_4)
 #define I2C1_SDA_PB9 \
 	AT32_PIN_MUX('B', 9, MUX_4)
-#define I2C1_SDA_PC1 \
-	AT32_PIN_MUX('C', 1, MUX_7)
 #define I2C1_SDA_PC7 \
 	AT32_PIN_MUX('C', 7, MUX_4)
-#define I2C1_SDA_PC9 \
-	AT32_PIN_MUX('C', 9, MUX_8)
+#define I2C1_SDA_PH0 \
+	AT32_PIN_MUX('H', 0, MUX_4)
 
 /* I2C1_SMBA */
-#define I2C1_SMBA_PA1 \
-	AT32_PIN_MUX('A', 1, MUX_5)
-#define I2C1_SMBA_PA11 \
-	AT32_PIN_MUX('A', 11, MUX_6)
+#define I2C1_SMBA_PB5 \
+	AT32_PIN_MUX('B', 5, MUX_4)
 #define I2C1_SMBA_PC5 \
 	AT32_PIN_MUX('C', 5, MUX_4)
 
@@ -350,8 +474,10 @@
 	AT32_PIN_MUX('B', 10, MUX_4)
 #define I2C2_SCL_PD12 \
 	AT32_PIN_MUX('D', 12, MUX_4)
-#define I2C2_SCL_PF6 \
-	AT32_PIN_MUX('F', 6, MUX_4)
+#define I2C2_SCL_PF1 \
+	AT32_PIN_MUX('F', 1, MUX_4)
+#define I2C2_SCL_PH2 \
+	AT32_PIN_MUX('H', 2, MUX_4)
 
 /* I2C2_SDA */
 #define I2C2_SDA_PA1 \
@@ -368,18 +494,20 @@
 	AT32_PIN_MUX('C', 12, MUX_4)
 #define I2C2_SDA_PD13 \
 	AT32_PIN_MUX('D', 13, MUX_4)
-#define I2C2_SDA_PF8 \
-	AT32_PIN_MUX('F', 8, MUX_4)
+#define I2C2_SDA_PF0 \
+	AT32_PIN_MUX('F', 0, MUX_4)
+#define I2C2_SDA_PH3 \
+	AT32_PIN_MUX('H', 3, MUX_4)
 
 /* I2C2_SMBA */
 #define I2C2_SMBA_PB12 \
 	AT32_PIN_MUX('B', 12, MUX_4)
 #define I2C2_SMBA_PD11 \
 	AT32_PIN_MUX('D', 11, MUX_4)
+#define I2C2_SMBA_PF2 \
+	AT32_PIN_MUX('F', 2, MUX_4)
 
 /* I2C3_SCL */
-#define I2C3_SCL_PA7 \
-	AT32_PIN_MUX('A', 7, MUX_4)
 #define I2C3_SCL_PA8 \
 	AT32_PIN_MUX('A', 8, MUX_4)
 #define I2C3_SCL_PB13 \
@@ -390,6 +518,8 @@
 	AT32_PIN_MUX('C', 0, MUX_4)
 #define I2C3_SCL_PD14 \
 	AT32_PIN_MUX('D', 14, MUX_4)
+#define I2C3_SCL_PF14 \
+	AT32_PIN_MUX('F', 14, MUX_4)
 
 /* I2C3_SDA */
 #define I2C3_SDA_PB14 \
@@ -400,6 +530,10 @@
 	AT32_PIN_MUX('C', 1, MUX_4)
 #define I2C3_SDA_PC9 \
 	AT32_PIN_MUX('C', 9, MUX_4)
+#define I2C3_SDA_PD15 \
+	AT32_PIN_MUX('D', 15, MUX_4)
+#define I2C3_SDA_PF15 \
+	AT32_PIN_MUX('F', 15, MUX_4)
 
 /* I2C3_SMBA */
 #define I2C3_SMBA_PA9 \
@@ -408,8 +542,8 @@
 	AT32_PIN_MUX('B', 13, MUX_4)
 #define I2C3_SMBA_PB2 \
 	AT32_PIN_MUX('B', 2, MUX_4)
-#define I2C3_SMBA_PB5 \
-	AT32_PIN_MUX('B', 5, MUX_4)
+#define I2C3_SMBA_PF13 \
+	AT32_PIN_MUX('F', 13, MUX_4)
 
 /* I2S1_CK */
 #define I2S1_CK_PA5 \
@@ -417,31 +551,25 @@
 #define I2S1_CK_PB3 \
 	AT32_PIN_MUX('B', 3, MUX_5)
 #define I2S1_CK_PE13 \
-	AT32_PIN_MUX('E', 13, MUX_5)
+	AT32_PIN_MUX('E', 13, MUX_4)
 
 /* I2S1_MCK */
-#define I2S1_MCK_PA6 \
-	AT32_PIN_MUX('A', 6, MUX_5)
 #define I2S1_MCK_PB0 \
 	AT32_PIN_MUX('B', 0, MUX_5)
-#define I2S1_MCK_PB4 \
-	AT32_PIN_MUX('B', 4, MUX_5)
 #define I2S1_MCK_PB6 \
 	AT32_PIN_MUX('B', 6, MUX_5)
-#define I2S1_MCK_PB9 \
-	AT32_PIN_MUX('B', 9, MUX_10)
-#define I2S1_MCK_PE14 \
-	AT32_PIN_MUX('E', 14, MUX_5)
+#define I2S1_MCK_PC4 \
+	AT32_PIN_MUX('C', 4, MUX_5)
 
 /* I2S1_SDEXT */
 #define I2S1_SDEXT_PA7 \
 	AT32_PIN_MUX('A', 7, MUX_5)
-#define I2S1_SDEXT_PB1 \
-	AT32_PIN_MUX('B', 1, MUX_5)
 #define I2S1_SDEXT_PB5 \
 	AT32_PIN_MUX('B', 5, MUX_5)
 #define I2S1_SDEXT_PE15 \
-	AT32_PIN_MUX('E', 15, MUX_5)
+	AT32_PIN_MUX('E', 15, MUX_4)
+#define I2S1_SDEXT_PG1 \
+	AT32_PIN_MUX('G', 1, MUX_5)
 
 /* I2S1_WS */
 #define I2S1_WS_PA15 \
@@ -449,7 +577,7 @@
 #define I2S1_WS_PA4 \
 	AT32_PIN_MUX('A', 4, MUX_5)
 #define I2S1_WS_PE12 \
-	AT32_PIN_MUX('E', 12, MUX_5)
+	AT32_PIN_MUX('E', 12, MUX_4)
 
 /* I2S2_CK */
 #define I2S2_CK_PA9 \
@@ -466,32 +594,20 @@
 	AT32_PIN_MUX('D', 1, MUX_6)
 #define I2S2_CK_PD3 \
 	AT32_PIN_MUX('D', 3, MUX_5)
-#define I2S2_CK_PF2 \
-	AT32_PIN_MUX('F', 2, MUX_5)
 
 /* I2S2_MCK */
 #define I2S2_MCK_PA3 \
 	AT32_PIN_MUX('A', 3, MUX_5)
 #define I2S2_MCK_PA6 \
 	AT32_PIN_MUX('A', 6, MUX_6)
-#define I2S2_MCK_PA12 \
-	AT32_PIN_MUX('A', 12, MUX_5)
-#define I2S2_MCK_PB14 \
-	AT32_PIN_MUX('B', 14, MUX_5)
-#define I2S2_MCK_PC2 \
-	AT32_PIN_MUX('C', 2, MUX_5)
 #define I2S2_MCK_PC6 \
 	AT32_PIN_MUX('C', 6, MUX_5)
-#define I2S2_MCK_PD3 \
-	AT32_PIN_MUX('D', 3, MUX_5)
 
 /* I2S2_SDEXT */
 #define I2S2_SDEXT_PA10 \
 	AT32_PIN_MUX('A', 10, MUX_5)
 #define I2S2_SDEXT_PC1 \
-	AT32_PIN_MUX('C', 1, MUX_6)
-#define I2S2_SDEXT_PB14 \
-	AT32_PIN_MUX('B', 14, MUX_6)
+	AT32_PIN_MUX('C', 1, MUX_7)
 #define I2S2_SDEXT_PB15 \
 	AT32_PIN_MUX('B', 15, MUX_5)
 #define I2S2_SDEXT_PC3 \
@@ -510,48 +626,36 @@
 	AT32_PIN_MUX('D', 0, MUX_7)
 #define I2S2_WS_PD1 \
 	AT32_PIN_MUX('D', 1, MUX_7)
-#define I2S2_WS_PF1 \
-	AT32_PIN_MUX('F', 1, MUX_5)
 
 /* I2S3_CK */
 #define I2S3_CK_PB12 \
 	AT32_PIN_MUX('B', 12, MUX_7)
 #define I2S3_CK_PB3 \
 	AT32_PIN_MUX('B', 3, MUX_6)
-#define I2S3_CK_PB7 \
-	AT32_PIN_MUX('B', 7, MUX_6)
 #define I2S3_CK_PC10 \
 	AT32_PIN_MUX('C', 10, MUX_6)
 
 /* I2S3_MCK */
-#define I2S3_MCK_PB4 \
-	AT32_PIN_MUX('B', 4, MUX_6)
-#define I2S3_MCK_PB8 \
-	AT32_PIN_MUX('B', 8, MUX_6)
 #define I2S3_MCK_PB10 \
 	AT32_PIN_MUX('B', 10, MUX_6)
 #define I2S3_MCK_PC7 \
 	AT32_PIN_MUX('C', 7, MUX_6)
-#define I2S3_MCK_PC11 \
-	AT32_PIN_MUX('C', 11, MUX_6)
 
 /* I2S3_SDEXT */
 #define I2S3_SDEXT_PA14 \
 	AT32_PIN_MUX('A', 14, MUX_6)
 #define I2S3_SDEXT_PB0 \
-	AT32_PIN_MUX('B', 0, MUX_6)
+	AT32_PIN_MUX('B', 0, MUX_7)
 #define I2S3_SDEXT_PB2 \
-	AT32_PIN_MUX('B', 2, MUX_6)
+	AT32_PIN_MUX('B', 2, MUX_7)
 #define I2S3_SDEXT_PB5 \
 	AT32_PIN_MUX('B', 5, MUX_6)
-#define I2S3_SDEXT_PB9 \
-	AT32_PIN_MUX('B', 9, MUX_6)
 #define I2S3_SDEXT_PC1 \
 	AT32_PIN_MUX('C', 1, MUX_5)
 #define I2S3_SDEXT_PC12 \
-	AT32_PIN_MUX('C', 12, MUX_5)
+	AT32_PIN_MUX('C', 12, MUX_6)
 #define I2S3_SDEXT_PD0 \
-	AT32_PIN_MUX('D', 0, MUX_5)
+	AT32_PIN_MUX('D', 0, MUX_6)
 #define I2S3_SDEXT_PD6 \
 	AT32_PIN_MUX('D', 6, MUX_5)
 
@@ -560,10 +664,6 @@
 	AT32_PIN_MUX('A', 15, MUX_6)
 #define I2S3_WS_PA4 \
 	AT32_PIN_MUX('A', 4, MUX_6)
-#define I2S3_WS_PA1 \
-	AT32_PIN_MUX('A', 1, MUX_6)
-#define I2S3_WS_PB6 \
-	AT32_PIN_MUX('B', 6, MUX_6)
 
 /* IR_OUT */
 #define IR_OUT_PA13 \
@@ -592,11 +692,11 @@
 	AT32_PIN_MUX('A', 13, MUX_0)
 
 /* OTG1_D+ */
-#define OTG1_D+_PA12 \
+#define OTG1_DP_PA12 \
 	AT32_PIN_MUX('A', 12, MUX_10)
 
 /* OTG1_D- */
-#define OTG1_D-_PA11 \
+#define OTG1_DM_PA11 \
 	AT32_PIN_MUX('A', 11, MUX_10)
 
 /* OTG1_ID */
@@ -615,33 +715,57 @@
 #define OTG1_VBUS_PA9 \
 	AT32_PIN_MUX('A', 9, MUX_10)
 
+/* OTG2_D+ */
+#define OTG2_DP_PB15 \
+	AT32_PIN_MUX('B', 15, MUX_12)
+
+/* OTG2_D- */
+#define OTG2_DM_PB14 \
+	AT32_PIN_MUX('B', 14, MUX_12)
+
+/* OTG2_ID */
+#define OTG2_ID_PB12 \
+	AT32_PIN_MUX('B', 12, MUX_10)
+
+/* OTG2_OE */
+#define OTG2_OE_PC9 \
+	AT32_PIN_MUX('C', 9, MUX_12)
+
+/* OTG2_SOF */
+#define OTG2_SOF_PA4 \
+	AT32_PIN_MUX('A', 4, MUX_12)
+
+/* OTG2_VBUS */
+#define OTG2_VBUS_PB13 \
+	AT32_PIN_MUX('B', 13, MUX_12)
+
 /* SPI1_CS */
 #define SPI1_CS_PA15 \
 	AT32_PIN_MUX('A', 15, MUX_5)
 #define SPI1_CS_PA4 \
 	AT32_PIN_MUX('A', 4, MUX_5)
 #define SPI1_CS_PE12 \
-	AT32_PIN_MUX('E', 12, MUX_5)
+	AT32_PIN_MUX('E', 12, MUX_4)
 
 /* SPI1_MISO */
 #define SPI1_MISO_PA6 \
 	AT32_PIN_MUX('A', 6, MUX_5)
-#define SPI1_MISO_PB0 \
-	AT32_PIN_MUX('B', 0, MUX_5)
 #define SPI1_MISO_PB4 \
 	AT32_PIN_MUX('B', 4, MUX_5)
 #define SPI1_MISO_PE14 \
-	AT32_PIN_MUX('E', 14, MUX_5)
+	AT32_PIN_MUX('E', 14, MUX_4)
+#define SPI1_MISO_PG0 \
+	AT32_PIN_MUX('G', 0, MUX_5)
 
 /* SPI1_MOSI */
 #define SPI1_MOSI_PA7 \
 	AT32_PIN_MUX('A', 7, MUX_5)
-#define SPI1_MOSI_PB1 \
-	AT32_PIN_MUX('B', 1, MUX_5)
 #define SPI1_MOSI_PB5 \
 	AT32_PIN_MUX('B', 5, MUX_5)
 #define SPI1_MOSI_PE15 \
-	AT32_PIN_MUX('E', 15, MUX_5)
+	AT32_PIN_MUX('E', 15, MUX_4)
+#define SPI1_MOSI_PG1 \
+	AT32_PIN_MUX('G', 1, MUX_5)
 
 /* SPI1_SCK */
 #define SPI1_SCK_PA5 \
@@ -649,7 +773,7 @@
 #define SPI1_SCK_PB3 \
 	AT32_PIN_MUX('B', 3, MUX_5)
 #define SPI1_SCK_PE13 \
-	AT32_PIN_MUX('E', 13, MUX_5)
+	AT32_PIN_MUX('E', 13, MUX_4)
 
 /* SPI2_CS */
 #define SPI2_CS_PA11 \
@@ -662,8 +786,6 @@
 	AT32_PIN_MUX('D', 0, MUX_7)
 #define SPI2_CS_PD1 \
 	AT32_PIN_MUX('D', 1, MUX_7)
-#define SPI2_CS_PF1 \
-	AT32_PIN_MUX('F', 1, MUX_5)
 
 /* SPI2_MISO */
 #define SPI2_MISO_PA12 \
@@ -681,7 +803,7 @@
 #define SPI2_MOSI_PB15 \
 	AT32_PIN_MUX('B', 15, MUX_5)
 #define SPI2_MOSI_PC1 \
-	AT32_PIN_MUX('C', 1, MUX_5)
+	AT32_PIN_MUX('C', 1, MUX_7)
 #define SPI2_MOSI_PC3 \
 	AT32_PIN_MUX('C', 3, MUX_5)
 #define SPI2_MOSI_PD4 \
@@ -702,26 +824,18 @@
 	AT32_PIN_MUX('D', 1, MUX_6)
 #define SPI2_SCK_PD3 \
 	AT32_PIN_MUX('D', 3, MUX_5)
-#define SPI2_SCK_PF2 \
-	AT32_PIN_MUX('F', 2, MUX_5)
 
 /* SPI3_CS */
-#define SPI3_CS_PA1 \
-	AT32_PIN_MUX('A', 1, MUX_6)
 #define SPI3_CS_PA15 \
 	AT32_PIN_MUX('A', 15, MUX_6)
 #define SPI3_CS_PA4 \
 	AT32_PIN_MUX('A', 4, MUX_6)
-#define SPI3_CS_PB6 \
-	AT32_PIN_MUX('B', 6, MUX_6)
 
 /* SPI3_MISO */
 #define SPI3_MISO_PA13 \
 	AT32_PIN_MUX('A', 13, MUX_6)
 #define SPI3_MISO_PB4 \
 	AT32_PIN_MUX('B', 4, MUX_6)
-#define SPI3_MISO_PB8 \
-	AT32_PIN_MUX('B', 8, MUX_6)
 #define SPI3_MISO_PC11 \
 	AT32_PIN_MUX('C', 11, MUX_6)
 
@@ -729,13 +843,13 @@
 #define SPI3_MOSI_PA14 \
 	AT32_PIN_MUX('A', 14, MUX_6)
 #define SPI3_MOSI_PB0 \
-	AT32_PIN_MUX('B', 0, MUX_6)
+	AT32_PIN_MUX('B', 0, MUX_7)
 #define SPI3_MOSI_PB2 \
-	AT32_PIN_MUX('B', 2, MUX_6)
+	AT32_PIN_MUX('B', 2, MUX_7)
 #define SPI3_MOSI_PB5 \
 	AT32_PIN_MUX('B', 5, MUX_6)
-#define SPI3_MOSI_PB9 \
-	AT32_PIN_MUX('B', 9, MUX_6)
+#define SPI3_MOSI_PC1 \
+	AT32_PIN_MUX('C', 1, MUX_5)
 #define SPI3_MOSI_PC12 \
 	AT32_PIN_MUX('C', 12, MUX_6)
 #define SPI3_MOSI_PD0 \
@@ -745,11 +859,9 @@
 
 /* SPI3_SCK */
 #define SPI3_SCK_PB12 \
-	AT32_PIN_MUX('B', 12, MUX_6)
+	AT32_PIN_MUX('B', 12, MUX_7)
 #define SPI3_SCK_PB3 \
 	AT32_PIN_MUX('B', 3, MUX_6)
-#define SPI3_SCK_PB7 \
-	AT32_PIN_MUX('B', 7, MUX_6)
 #define SPI3_SCK_PC10 \
 	AT32_PIN_MUX('C', 10, MUX_6)
 
@@ -765,75 +877,39 @@
 #define SWO_PB3 \
 	AT32_PIN_MUX('B', 3, MUX_0)
 
-/* TMR10_BRK */
-#define TMR10_BRK_PB5 \
-	AT32_PIN_MUX('B', 5, MUX_3)
-
 /* TMR10_CH1 */
 #define TMR10_CH1_PB8 \
 	AT32_PIN_MUX('B', 8, MUX_3)
-
-/* TMR10_CH1C */
-#define TMR10_CH1C_PB6 \
-	AT32_PIN_MUX('B', 6, MUX_3)
-
-/* TMR11_BRK */
-#define TMR11_BRK_PB4 \
-	AT32_PIN_MUX('B', 4, MUX_3)
+#define TMR10_CH1_PF6 \
+	AT32_PIN_MUX('F', 6, MUX_3)
 
 /* TMR11_CH1 */
 #define TMR11_CH1_PB9 \
 	AT32_PIN_MUX('B', 9, MUX_3)
 #define TMR11_CH1_PC12 \
 	AT32_PIN_MUX('C', 12, MUX_3)
-
-/* TMR11_CH1C */
-#define TMR11_CH1C_PB7 \
-	AT32_PIN_MUX('B', 7, MUX_3)
-
-/* TMR12_BRK */
-#define TMR12_BRK_PB12 \
-	AT32_PIN_MUX('B', 12, MUX_3)
+#define TMR11_CH1_PF7 \
+	AT32_PIN_MUX('F', 7, MUX_3)
 
 /* TMR12_CH1 */
 #define TMR12_CH1_PB14 \
 	AT32_PIN_MUX('B', 14, MUX_9)
-#define TMR12_CH1_PF9 \
-	AT32_PIN_MUX('F', 9, MUX_9)
-
-/* TMR12_CH1C */
-#define TMR12_CH1C_PB13 \ 
-	AT32_PIN_MUX('B', 13, MUX_9)
-#define TMR12_CH1C_PB15 \
-	AT32_PIN_MUX('B', 15, MUX_9)
 
 /* TMR12_CH2 */
 #define TMR12_CH2_PB15 \
 	AT32_PIN_MUX('B', 15, MUX_9)
-#define TMR12_CH2_PF10 \
-	AT32_PIN_MUX('F', 10, MUX_9)
-
-/* TMR12_CH2C */
-#define TMR12_CH2C_PD8 \
-	AT32_PIN_MUX('D', 8, MUX_9)
 
 /* TMR13_CH1 */
 #define TMR13_CH1_PA6 \
 	AT32_PIN_MUX('A', 6, MUX_9)
-#define TMR13_CH1_PC4 \
-	AT32_PIN_MUX('C', 4, MUX_9)
-#define TMR13_CH1_PE0 \
-	AT32_PIN_MUX('E', 0, MUX_9)
+#define TMR13_CH1_PF8 \
+	AT32_PIN_MUX('F', 8, MUX_9)
 
 /* TMR14_CH1 */
-#define TMR14_CH1_PA4 \
-	AT32_PIN_MUX('A', 4, MUX_9)
 #define TMR14_CH1_PA7 \
 	AT32_PIN_MUX('A', 7, MUX_9)
-#define TMR14_CH1_PB1 \
-	AT32_PIN_MUX('B', 1, MUX_9)
-#define TMR14_CH1_PE1 \
-	AT32_PIN_MUX('E', 1, MUX_9)
+#define TMR14_CH1_PF9 \
+	AT32_PIN_MUX('F', 9, MUX_9)
 
 /* TMR1_BRK */
 #define TMR1_BRK_PA6 \
@@ -846,12 +922,8 @@
 /* TMR1_CH1 */
 #define TMR1_CH1_PA8 \
 	AT32_PIN_MUX('A', 8, MUX_1)
-#define TMR1_CH1_PC6 \
-	AT32_PIN_MUX('C', 6, MUX_1)
 #define TMR1_CH1_PE9 \
 	AT32_PIN_MUX('E', 9, MUX_1)
-#define TMR1_CH1_PF0 \
-	AT32_PIN_MUX('F', 0, MUX_1)
 
 /* TMR1_CH1C */
 #define TMR1_CH1C_PA7 \
@@ -864,8 +936,6 @@
 /* TMR1_CH2 */
 #define TMR1_CH2_PA9 \
 	AT32_PIN_MUX('A', 9, MUX_1)
-#define TMR1_CH2_PC7 \
-	AT32_PIN_MUX('C', 7, MUX_1)
 #define TMR1_CH2_PE11 \
 	AT32_PIN_MUX('E', 11, MUX_1)
 
@@ -878,14 +948,10 @@
 	AT32_PIN_MUX('E', 1, MUX_1)
 #define TMR1_CH2C_PE10 \
 	AT32_PIN_MUX('E', 10, MUX_1)
-#define TMR1_CH2C_PF1 \
-	AT32_PIN_MUX('F', 1, MUX_1)
 
 /* TMR1_CH3 */
 #define TMR1_CH3_PA10 \
 	AT32_PIN_MUX('A', 10, MUX_1)
-#define TMR1_CH3_PC8 \
-	AT32_PIN_MUX('C', 8, MUX_1)
 #define TMR1_CH3_PE13 \
 	AT32_PIN_MUX('E', 13, MUX_1)
 
@@ -900,8 +966,6 @@
 /* TMR1_CH4 */
 #define TMR1_CH4_PA11 \
 	AT32_PIN_MUX('A', 11, MUX_1)
-#define TMR1_CH4_PC9 \
-	AT32_PIN_MUX('C', 9, MUX_1)
 #define TMR1_CH4_PE14 \
 	AT32_PIN_MUX('E', 14, MUX_1)
 
@@ -910,6 +974,8 @@
 	AT32_PIN_MUX('A', 12, MUX_1)
 #define TMR1_EXT_PE7 \
 	AT32_PIN_MUX('E', 7, MUX_1)
+#define TMR1_EXT_PF10 \
+	AT32_PIN_MUX('F', 10, MUX_1)
 
 /* TMR2_CH1 */
 #define TMR2_CH1_PA0 \
@@ -920,8 +986,6 @@
 	AT32_PIN_MUX('A', 5, MUX_1)
 #define TMR2_CH1_PB8 \
 	AT32_PIN_MUX('B', 8, MUX_1)
-#define TMR2_CH1_PF6 \
-	AT32_PIN_MUX('F', 6, MUX_1)
 
 /* TMR2_CH2 */
 #define TMR2_CH2_PA1 \
@@ -930,8 +994,6 @@
 	AT32_PIN_MUX('B', 3, MUX_1)
 #define TMR2_CH2_PB9 \
 	AT32_PIN_MUX('B', 9, MUX_1)
-#define TMR2_CH2_PF8 \
-	AT32_PIN_MUX('F', 8, MUX_1)
 
 /* TMR2_CH3 */
 #define TMR2_CH3_PA2 \
@@ -994,8 +1056,6 @@
 	AT32_PIN_MUX('E', 6, MUX_2)
 
 /* TMR3_EXT */
-#define TMR3_EXT_PB2 \
-	AT32_PIN_MUX('B', 2, MUX_2)
 #define TMR3_EXT_PD2 \
 	AT32_PIN_MUX('D', 2, MUX_2)
 #define TMR3_EXT_PE2 \
@@ -1006,16 +1066,12 @@
 	AT32_PIN_MUX('B', 6, MUX_2)
 #define TMR4_CH1_PD12 \
 	AT32_PIN_MUX('D', 12, MUX_2)
-#define TMR4_CH1_PF9 \
-	AT32_PIN_MUX('F', 9, MUX_2)
 
 /* TMR4_CH2 */
 #define TMR4_CH2_PB7 \
 	AT32_PIN_MUX('B', 7, MUX_2)
 #define TMR4_CH2_PD13 \
 	AT32_PIN_MUX('D', 13, MUX_2)
-#define TMR4_CH2_PF10 \
-	AT32_PIN_MUX('F', 10, MUX_2)
 
 /* TMR4_CH3 */
 #define TMR4_CH3_PB8 \
@@ -1033,6 +1089,54 @@
 #define TMR4_EXT_PE0 \
 	AT32_PIN_MUX('E', 0, MUX_2)
 
+/* TMR8_BRK */
+#define TMR8_BRK_PA6 \
+	AT32_PIN_MUX('A', 6, MUX_3)
+#define TMR8_BRK_PB7 \
+	AT32_PIN_MUX('B', 7, MUX_3)
+#define TMR8_BRK_PF12 \
+	AT32_PIN_MUX('F', 12, MUX_3)
+
+/* TMR8_CH1 */
+#define TMR8_CH1_PC6 \
+	AT32_PIN_MUX('C', 6, MUX_3)
+
+/* TMR8_CH1C */
+#define TMR8_CH1C_PA7 \
+	AT32_PIN_MUX('A', 7, MUX_3)
+#define TMR8_CH1C_PA5 \
+	AT32_PIN_MUX('A', 5, MUX_3)
+
+/* TMR8_CH2 */
+#define TMR8_CH2_PC7 \
+	AT32_PIN_MUX('C', 7, MUX_3)
+
+/* TMR8_CH2C */
+#define TMR8_CH2C_PB0 \
+	AT32_PIN_MUX('B', 0, MUX_3)
+#define TMR8_CH2C_PB14 \
+	AT32_PIN_MUX('B', 14, MUX_3)
+
+/* TMR8_CH3 */
+#define TMR8_CH3_PC8 \
+	AT32_PIN_MUX('C', 8, MUX_3)
+
+/* TMR8_CH3C */
+#define TMR8_CH3C_PB1 \
+	AT32_PIN_MUX('B', 1, MUX_3)
+#define TMR8_CH3C_PB15 \
+	AT32_PIN_MUX('B', 15, MUX_3)
+
+/* TMR8_CH4 */
+#define TMR8_CH4_PC9 \
+	AT32_PIN_MUX('C', 9, MUX_3)
+
+/* TMR8_EXT */
+#define TMR8_EXT_PA0 \
+	AT32_PIN_MUX('A', 0, MUX_3)
+#define TMR8_EXT_PF11 \
+	AT32_PIN_MUX('F', 11, MUX_3)
+
 /* TMR9_BRK */
 #define TMR9_BRK_PA8 \
 	AT32_PIN_MUX('A', 8, MUX_3)
@@ -1047,12 +1151,6 @@
 #define TMR9_CH1_PE5 \
 	AT32_PIN_MUX('E', 5, MUX_3)
 
-/* TMR9_CH1C */
-#define TMR9_CH1C_PA1 \
-	AT32_PIN_MUX('A', 1, MUX_3)
-#define TMR9_CH1C_PE4 \
-	AT32_PIN_MUX('E', 4, MUX_3)
-
 /* TMR9_CH2 */
 #define TMR9_CH2_PA3 \
 	AT32_PIN_MUX('A', 3, MUX_3)
@@ -1061,35 +1159,27 @@
 #define TMR9_CH2_PE6 \
 	AT32_PIN_MUX('E', 6, MUX_3)
 
-/* TMR9_CH2C */
-#define TMR9_CH2C_PA0 \
-	AT32_PIN_MUX('A', 0, MUX_3)
-#define TMR9_CH2_PE3 \
-	AT32_PIN_MUX('E', 3, MUX_3)
-
 /* UART4_RX */
 #define UART4_RX_PA1 \
 	AT32_PIN_MUX('A', 1, MUX_8)
 #define UART4_RX_PC11 \
 	AT32_PIN_MUX('C', 11, MUX_8)
-#define UART4_RX_PD0 \
-	AT32_PIN_MUX('D', 0, MUX_8)
+#define UART4_RX_PH2 \
+	AT32_PIN_MUX('H', 2, MUX_8)
 #define UART4_RX_PE9 \
-	AT32_PIN_MUX('E', 9, MUX_8)
+	AT32_PIN_MUX('E', 9, MUX_7)
 
 /* UART4_TX */
 #define UART4_TX_PA0 \
 	AT32_PIN_MUX('A', 0, MUX_8)
 #define UART4_TX_PC10 \
 	AT32_PIN_MUX('C', 10, MUX_8)
-#define UART4_TX_PD1 \
-	AT32_PIN_MUX('D', 1, MUX_8)
-#define UART4_TX_PD10 \
-	AT32_PIN_MUX('D', 10, MUX_8)
+#define UART4_TX_PE8 \
+	AT32_PIN_MUX('E', 8, MUX_7)
+#define UART4_TX_PH3 \
+	AT32_PIN_MUX('H', 3, MUX_8)
 
 /* UART5_RX */
-#define UART5_RX_PB4 \
-	AT32_PIN_MUX('B', 4, MUX_10)
 #define UART5_RX_PB5 \
 	AT32_PIN_MUX('B', 5, MUX_8)
 #define UART5_RX_PB8 \
@@ -1099,10 +1189,7 @@
 #define UART5_RX_PE11 \
 	AT32_PIN_MUX('E', 11, MUX_8)
 
-
 /* UART5_TX */
-#define UART5_TX_PB3 \
-	AT32_PIN_MUX('B', 3, MUX_10)
 #define UART5_TX_PB6 \
 	AT32_PIN_MUX('B', 6, MUX_8)
 #define UART5_TX_PB9 \
@@ -1112,58 +1199,45 @@
 #define UART5_TX_PE10 \
 	AT32_PIN_MUX('E', 10, MUX_8)
 
-
 /* USART6_RX */
 #define USART6_RX_PA5 \
 	AT32_PIN_MUX('A', 5, MUX_8)
 #define USART6_RX_PA12 \
 	AT32_PIN_MUX('A', 12, MUX_8)
-#define USART6_RX_PC1 \
-	AT32_PIN_MUX('C', 1, MUX_8)
 #define USART6_RX_PC7 \
 	AT32_PIN_MUX('C', 7, MUX_8)
-#define USART6_RX_PF10 \
-	AT32_PIN_MUX('F', 10, MUX_8)
+#define USART6_RX_PG9 \
+	AT32_PIN_MUX('G', 9, MUX_8)
 
 /* USART6_TX */
 #define USART6_TX_PA4 \
 	AT32_PIN_MUX('A', 4, MUX_8)
 #define USART6_TX_PA11 \
 	AT32_PIN_MUX('A', 11, MUX_8)
-#define USART6_TX_PC0 \
-	AT32_PIN_MUX('C', 0, MUX_8)
 #define USART6_TX_PC6 \
-	AT32_PIN_MUX('C', 6, MUX_10)
-#define USART6_TX_PF9 \
-	AT32_PIN_MUX('F', 9, MUX_8)
+	AT32_PIN_MUX('C', 6, MUX_8)
+#define USART6_TX_PG14 \
+	AT32_PIN_MUX('G', 14, MUX_8)
 
 /* UART7_RX */
-#define UART7_RX_PA8 \
-	AT32_PIN_MUX('A', 8, MUX_9)
 #define UART7_RX_PB3 \
-	AT32_PIN_MUX('B', 3, MUX_9)
+	AT32_PIN_MUX('B', 3, MUX_8)
 #define UART7_RX_PC1 \
-	AT32_PIN_MUX('C', 1, MUX_9)
-#define UART7_RX_PC7 \
-	AT32_PIN_MUX('C', 7, MUX_9)
+	AT32_PIN_MUX('C', 1, MUX_8)
 #define UART7_RX_PE7 \
-	AT32_PIN_MUX('E', 7, MUX_9)
+	AT32_PIN_MUX('E', 7, MUX_8)
 #define UART7_RX_PF6 \
-	AT32_PIN_MUX('F', 6, MUX_9)
+	AT32_PIN_MUX('F', 6, MUX_8)
 
 /* UART7_TX */
-#define UART7_TX_PA15 \
-	AT32_PIN_MUX('A', 15, MUX_9)
 #define UART7_TX_PB4 \
-	AT32_PIN_MUX('B', 4, MUX_9)
+	AT32_PIN_MUX('B', 4, MUX_8)
 #define UART7_TX_PC0 \
-	AT32_PIN_MUX('C', 0, MUX_9)
-#define UART7_TX_PC6 \
-	AT32_PIN_MUX('C', 6, MUX_9)
+	AT32_PIN_MUX('C', 0, MUX_8)
 #define UART7_TX_PE8 \
-	AT32_PIN_MUX('E', 8, MUX_9)
-#define UART7_TX_PF8 \
-	AT32_PIN_MUX('F', 8, MUX_9)
+	AT32_PIN_MUX('E', 8, MUX_8)
+#define UART7_TX_PF7 \
+	AT32_PIN_MUX('F', 7, MUX_8)
 
 /* USART1_CK */
 #define USART1_CK_PA8 \
@@ -1174,14 +1248,10 @@
 /* USART1_CTS */
 #define USART1_CTS_PA11 \
 	AT32_PIN_MUX('A', 11, MUX_7)
-#define USART1_CTS_PB4 \
-	AT32_PIN_MUX('B', 4, MUX_7)
 
 /* USART1_RTS_DE */
 #define USART1_RTS_DE_PA12 \
 	AT32_PIN_MUX('A', 12, MUX_7)
-#define USART1_RTS_DE_PB3 \
-	AT32_PIN_MUX('B', 3, MUX_7)
 
 /* USART1_RX */
 #define USART1_RX_PA10 \
@@ -1198,14 +1268,10 @@
 	AT32_PIN_MUX('A', 9, MUX_7)
 #define USART1_TX_PB6 \
 	AT32_PIN_MUX('B', 6, MUX_7)
-#define USART1_TX_PB8 \
-	AT32_PIN_MUX('B', 8, MUX_7)
 
 /* USART2_CK */
 #define USART2_CK_PA4 \
 	AT32_PIN_MUX('A', 4, MUX_7)
-#define USART2_CK_PB1 \
-	AT32_PIN_MUX('B', 1, MUX_7)
 #define USART2_CK_PD7 \
 	AT32_PIN_MUX('D', 7, MUX_7)
 
@@ -1228,8 +1294,6 @@
 	AT32_PIN_MUX('A', 3, MUX_7)
 #define USART2_RX_PB0 \
 	AT32_PIN_MUX('B', 0, MUX_6)
-#define USART2_RX_PA0 \
-	AT32_PIN_MUX('A', 0, MUX_6)
 #define USART2_RX_PD6 \
 	AT32_PIN_MUX('D', 6, MUX_7)
 
@@ -1248,8 +1312,6 @@
 	AT32_PIN_MUX('B', 0, MUX_8)
 #define USART3_CK_PB12 \
 	AT32_PIN_MUX('B', 12, MUX_8)
-#define USART3_CK_PA5 \
-	AT32_PIN_MUX('A', 5, MUX_6)
 #define USART3_CK_PC12 \
 	AT32_PIN_MUX('C', 12, MUX_7)
 #define USART3_CK_PD10 \
@@ -1276,10 +1338,6 @@
 /* USART3_RX */
 #define USART3_RX_PB11 \
 	AT32_PIN_MUX('B', 11, MUX_7)
-#define USART3_RX_PA5 \
-	AT32_PIN_MUX('A', 5, MUX_7)
-#define USART3_RX_A6 \
-	AT32_PIN_MUX('A', 6, MUX_8)
 #define USART3_RX_PC5 \
 	AT32_PIN_MUX('C', 5, MUX_7)
 #define USART3_RX_PC11 \
@@ -1290,10 +1348,9 @@
 /* USART3_TX */
 #define USART3_TX_PB10 \
 	AT32_PIN_MUX('B', 10, MUX_7)
-#define USART3_TX_PA7 \
-	AT32_PIN_MUX('A', 7, MUX_7)
+#define USART3_TX_PD8 \
+	AT32_PIN_MUX('D', 8, MUX_7)
 #define USART3_TX_PC4 \
 	AT32_PIN_MUX('C', 4, MUX_7)
 #define USART3_TX_PC10 \
 	AT32_PIN_MUX('C', 10, MUX_7)
-

@@ -17,3 +17,9 @@
 #include <at32f435_437_crm.h>
 #define CRM_USB_DIV
 #endif
+
+#if defined(CONFIG_SOC_SERIES_AT32F403A_407)
+#include <at32f403A_407_crm.h>
+#define CRM_USB_DIV
+#define AT32_PLL_MULT
+#endif

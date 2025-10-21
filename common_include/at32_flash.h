@@ -17,3 +17,7 @@
 #include <at32f435_437_flash.h>
 #define FLASH_FDIV
 #endif
+
+#if defined(CONFIG_SOC_SERIES_AT32F403A_407)
+#include <at32f403a_407_flash.h>
+#endif

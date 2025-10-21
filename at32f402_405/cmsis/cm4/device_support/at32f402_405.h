@@ -46,97 +46,11 @@ extern "C" {
   *      devices, you can define the device in your toolchain compiler preprocessor.
   */
 #ifdef AT32F405
-#define AT32F405RCT7
+#define AT32F405xx
 #endif
 
-#if !defined (AT32F405KBU7_4) && !defined (AT32F405KCU7_4) && !defined (AT32F405CBT7)  && \
-    !defined (AT32F405CCT7)   && !defined (AT32F405CBU7)   && !defined (AT32F405CCU7)  && \
-    !defined (AT32F405RBT7_7) && !defined (AT32F405RCT7_7) && !defined (AT32F405RBT7)  && \
-    !defined (AT32F405RCT7)   && !defined (AT32F402KBU7_4) && !defined (AT32F402KCU7_4)&& \
-    !defined (AT32F402CBT7)   && !defined (AT32F402CCT7)   && !defined (AT32F402CBU7)  && \
-    !defined (AT32F402CCU7)   && !defined (AT32F402RBT7_7) && !defined (AT32F402RCT7_7)&& \
-    !defined (AT32F402RBT7)   && !defined (AT32F402RCT7)
-
-    #error "Please select first the target device used in your application (in at32f402_405.h file)"
-#endif
-
-#if defined (AT32F405KBU7_4) || defined (AT32F405KCU7_4) || defined (AT32F405CBT7) || \
-    defined (AT32F405CCT7)   || defined (AT32F405CBU7)   || defined (AT32F405CCU7) || \
-    defined (AT32F405RBT7_7) || defined (AT32F405RCT7_7) || defined (AT32F405RBT7) || \
-    defined (AT32F405RCT7)
-
-    #define AT32F405xx
-#endif
-
-#if defined (AT32F402KBU7_4) || defined (AT32F402KCU7_4) || defined (AT32F402CBT7) || \
-    defined (AT32F402CCT7)   || defined (AT32F402CBU7)   || defined (AT32F402CCU7) || \
-    defined (AT32F402RBT7_7) || defined (AT32F402RCT7_7) || defined (AT32F402RBT7) || \
-    defined (AT32F402RCT7)
-
-    #define AT32F402xx
-#endif
-
-/**
-  * define with package
-  */
-#if defined (AT32F405KBU7_4) || defined (AT32F405KCU7_4)
-
-    #define AT32F405Kx
-#endif
-#if defined (AT32F405CBT7)   || defined (AT32F405CCT7)   || defined (AT32F405CBU7) || \
-    defined (AT32F405CCU7)
-
-    #define AT32F405Rx
-#endif
-
-#if defined (AT32F405RBT7_7) || defined (AT32F405RCT7_7) || defined (AT32F405RBT7) || \
-    defined (AT32F405RCT7)
-   
-    #define AT32F405Rx
-#endif
-
-#if defined (AT32F402KBU7_4) || defined (AT32F402KCU7_4)
-
-    #define AT32F402Kx
-#endif
-#if defined (AT32F402CBT7)   || defined (AT32F402CCT7)   || defined (AT32F402CBU7) || \
-    defined (AT32F402CCU7)
-
-    #define AT32F402Rx
-#endif
-
-#if defined (AT32F402RBT7_7) || defined (AT32F402RCT7_7) || defined (AT32F402RBT7) || \
-    defined (AT32F402RCT7)
-   
-    #define AT32F402Rx
-#endif
-
-
-/**
-  * define with memory density
-  */
-#if defined (AT32F405KBU7_4) || defined (AT32F405CBT7)   || defined (AT32F405CBU7) || \
-    defined (AT32F405RBT7_7) || defined (AT32F405RBT7)
-
-    #define AT32F405xB
-#endif
-
-#if defined (AT32F405KCU7_4) || defined (AT32F405CCT7)   || defined (AT32F405CCU7) || \
-    defined (AT32F405RCT7_7) || defined (AT32F405RCT7)
-
-    #define AT32F405xC
-#endif
-
-#if defined (AT32F402KBU7_4) || defined (AT32F402CBT7)   || defined (AT32F402CBU7) || \
-    defined (AT32F402RBT7_7) || defined (AT32F402RBT7)
-
-    #define AT32F402xB
-#endif
-
-#if defined (AT32F402KCU7_4) || defined (AT32F402CCT7)   || defined (AT32F402CCU7) || \
-    defined (AT32F402RCT7_7) || defined (AT32F402RCT7)
-
-    #define AT32F402xC
+#ifdef AT32F402
+#define AT32F402xx
 #endif
 
 #ifndef USE_STDPERIPH_DRIVER

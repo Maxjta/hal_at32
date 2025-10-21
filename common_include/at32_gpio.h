@@ -14,3 +14,8 @@
 #if defined(CONFIG_SOC_SERIES_AT32F435_437)
 #include <at32f435_437_gpio.h>
 #endif
+
+#if defined(CONFIG_SOC_SERIES_AT32F403A_407)
+#include <at32f403a_407_gpio.h>
+#define AT32_NO_SYSCFG
+#endif

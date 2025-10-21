@@ -25,3 +25,8 @@
 #define ADC_CCE_INT ADC_OCCE_INT
 #define ADC_CCE_FLAG ADC_OCCE_FLAG
 #endif
+
+#if defined(CONFIG_SOC_SERIES_AT32F403A_407)
+#include <at32f403a_407_adc.h>
+#define AT32_ADC_COMM_PSC
+#endif
