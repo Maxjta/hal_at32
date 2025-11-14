@@ -17,6 +17,12 @@ static void hal_usbd_init(hal_udc_handle *pudc);
 static void hal_usbd_ept_default_init(hal_udc_handle *pudc);
 static void hal_usbd_irq(hal_udc_handle *pudc);
 
+#ifdef USB
+static void usbd_eptn_handler(hal_udc_handle *pudc, usb_ept_number_type ept_num);
+static void usbd_ept_loop_handler(hal_udc_handle *pudc);
+static void usbd_reset_handler(hal_udc_handle *pudc);
+#endif
+
 static void hal_udc_delay(uint32_t delay);
 static void hal_udc_delay(uint32_t delay)
 {
@@ -44,7 +50,11 @@ int hal_udc_irq(hal_udc_handle *pudc)
 
 int hal_udc_set_address(hal_udc_handle *pudc, const uint8_t addr)
 {
+#ifdef USB
+  pudc->usb_address = addr;
+#else
   usb_set_address(pudc->usb_reg, addr);
+#endif
   return 0;
 }
 
@@ -185,6 +195,129 @@ __WEAK void hal_udc_disconnect_callback(hal_udc_handle *pudc)
 
 #ifdef USB
 
+static void hal_usbd_irq(hal_udc_handle *pudc)
+{
+  usbd_type *usbx = pudc->usb_reg;
+  uint32_t sts_val = usbx->intsts;
+  uint32_t sts_ien = usbx->ctrl;
+
+  if(sts_val & USB_TC_FLAG)
+  {
+    /* endpoint tc interrupt handler */
+    usbd_ept_loop_handler(pudc);
+  }
+
+  if(sts_val & USB_RST_FLAG)
+  {
+    /* clear reset flag */
+    usb_flag_clear(usbx, USB_RST_FLAG);
+
+    /* reset interrupt handler */
+    usbd_reset_handler(pudc);
+  }
+
+  if((sts_val & USB_SOF_FLAG) &&
+    (sts_ien & USB_SOF_INT))
+  {
+    /* clear sof flag */
+    usb_flag_clear(usbx, USB_SOF_FLAG);
+
+    /* sof interrupt handler */
+    hal_udc_sof_callback(pudc);
+  }
+
+  if((sts_val & USB_LSOF_FLAG) &&
+    (sts_ien & USB_LSOF_INT))
+  {
+    /* clear lsof flag */
+    usb_flag_clear(usbx, USB_LSOF_FLAG);
+  }
+
+  if((sts_val & USB_SP_FLAG) &&
+    (sts_ien & USB_SP_INT))
+  {
+    /* clear suspend flag */
+    usb_flag_clear(usbx, USB_SP_FLAG);
+
+    usb_enter_suspend(pudc->usb_reg);
+
+    /* usb suspend interrupt handler */
+    hal_udc_suspend_callback(pudc);
+  }
+
+  if((sts_val & USB_WK_FLAG) &&
+    (sts_ien & USB_WK_INT))
+  {
+    usb_exit_suspend(pudc->usb_reg);
+
+    /* usb wakeup interrupt handler */
+    hal_udc_resume_callback(pudc);
+
+    /* clear wakeup flag */
+    usb_flag_clear(usbx, USB_WK_FLAG);
+  }
+}
+
+static void hal_usbd_ept_default_init(hal_udc_handle *pudc)
+{
+  uint8_t i_index = 0;
+  /* init in endpoint info structure */
+  for(i_index = 0; i_index < USB_EPT_MAX_NUM; i_index ++)
+  {
+    pudc->ept_in[i_index].eptn        = i_index;
+    pudc->ept_in[i_index].ept_address = i_index;
+    pudc->ept_in[i_index].inout         = DATA_TRANS_IN;
+    pudc->ept_in[i_index].maxpacket   = 0;
+    pudc->ept_in[i_index].trans_buf   = 0;
+    pudc->ept_in[i_index].total_len   = 0;
+    pudc->ept_in[i_index].tx_addr     = 0;
+    pudc->ept_in[i_index].rx_addr     = 0;
+  }
+
+  /* init out endpoint info structure */
+  for(i_index = 0; i_index < USB_EPT_MAX_NUM; i_index ++)
+  {
+    pudc->ept_out[i_index].eptn        = i_index;
+    pudc->ept_out[i_index].ept_address = i_index;
+    pudc->ept_out[i_index].inout         = DATA_TRANS_OUT;
+    pudc->ept_out[i_index].maxpacket   = 0;
+    pudc->ept_out[i_index].trans_buf   = 0;
+    pudc->ept_out[i_index].total_len   = 0;
+    pudc->ept_out[i_index].rx_addr     = 0;
+    pudc->ept_out[i_index].tx_addr     = 0;
+  }
+  return;
+}
+
+static void hal_usbd_init(hal_udc_handle *pudc)
+{
+  usb_reg_type *usbx = pudc->usb_reg;
+
+  hal_usbd_ept_default_init(pudc);
+
+  hal_udc_delay(0);
+
+  pudc->usb_address = 0;
+
+  /* clear usb core reset */
+  usbx->ctrl_bit.csrst = 0;
+
+  /* clear usb interrupt status */
+  usbx->intsts = 0;
+
+  /* set usb packet buffer descirption table address */
+  usbx->buftbl = USB_BUFFER_TABLE_ADDRESS;
+
+  /* enable usb core and set device address to 0 */
+  usbx->devaddr = 0x80;
+
+  if(pudc->udc_config.sof_en)
+  {
+    usb_interrupt_enable(usbx, USB_SOF_INT, TRUE);
+  }
+  usb_interrupt_enable(usbx, USB_RST_INT | USB_SP_INT | USB_WK_INT | USB_TC_INT, TRUE);
+}
+
 static void hal_usbd_ept_open(hal_udc_handle *pudc, const uint8_t ep, uint8_t type, uint32_t maxpacket)
 {
   usb_reg_type *usbx = pudc->usb_reg;
@@ -213,7 +346,8 @@ static void hal_usbd_ept_open(hal_udc_handle *pudc, const uint8_t ep, uint8_t ty
 
 static void hal_usbd_ep_clear_stall(hal_udc_handle *pudc, const uint8_t ep)
 {
-  if(ept_addr & 0x80)
+  usb_ept_info *ept_info;
+  if(ep & 0x80)
   {
     /* in endpoint */
     ept_info = &pudc->ept_in[ep & 0x7F];
@@ -227,7 +361,7 @@ static void hal_usbd_ep_clear_stall(hal_udc_handle *pudc, const uint8_t ep)
     ept_info = &pudc->ept_out[ep & 0x7F];
     USB_CLEAR_RXDTS(ept_info->eptn);
     if(USB->ept_bit[ept_info->eptn].rxsts == USB_RX_STALL)
-      USB_SET_RXSTS(ept_info->eptn, USB_RX_NAK);
+      USB_SET_RXSTS(ept_info->eptn, USB_RX_VALID);
   }
   ept_info->stall = 0;
 }
@@ -235,18 +369,17 @@ static void hal_usbd_ep_clear_stall(hal_udc_handle *pudc, const uint8_t ep)
 static void hal_usbd_ep_set_stall(hal_udc_handle *pudc, const uint8_t ep)
 {
   usb_ept_info *ept_info;
-  usb_reg_type *usbx = pudc->usb_reg;
 
   if(ep & 0x80)
   {
     /* in endpoint */
-    ept_info = &udc->ept_in[ep & 0x7F];
+    ept_info = &pudc->ept_in[ep & 0x7F];
     USB_SET_TXSTS(ept_info->eptn, USB_TX_STALL);
   }
   else
   {
     /* out endpoint */
-    ept_info = &udc->ept_out[ep & 0x7F];
+    ept_info = &pudc->ept_out[ep & 0x7F];
     USB_SET_RXSTS(ept_info->eptn, USB_RX_STALL);
   }
   ept_info->stall = 1;
@@ -256,7 +389,8 @@ static void hal_usbd_ep_set_stall(hal_udc_handle *pudc, const uint8_t ep)
 static void hal_usbd_ept_config(hal_udc_handle *pudc, uint8_t ep, uint8_t is_db, uint32_t offset)
 {
   usb_ept_info *ept_info;
-  if((ept_addr & 0x80) == 0)
+
+  if((ep & 0x80) == 0)
   {
     /* out endpoint info */
     ept_info = &pudc->ept_out[ep & 0x7F];
@@ -266,6 +400,8 @@ static void hal_usbd_ept_config(hal_udc_handle *pudc, uint8_t ep, uint8_t is_db,
     /* in endpoint info */
     ept_info = &pudc->ept_in[ep & 0x7F];
   }
+
+  ept_info->is_double_buffer = is_db;
 
   if(ept_info->is_double_buffer == 0)
   {
@@ -307,7 +443,7 @@ static void hal_usbd_ept_write(hal_udc_handle *pudc, const uint8_t ep, uint8_t *
   }
   else
   {
-    trs_len = len;
+    trs_len = length;
     ept_info->total_len = 0;
   }
 
@@ -387,7 +523,7 @@ static void hal_usbd_ept_read(hal_udc_handle *pudc, uint8_t ept_addr, uint8_t *b
 
 static void hal_usbd_wakeup_enable(hal_udc_handle *pudc)
 {
-  usb_exit_suspend(udev->usb_reg);
+  usb_exit_suspend(pudc->usb_reg);
   /* set remote wakeup */
   usb_remote_wkup_set(pudc->usb_reg);
 }
@@ -401,8 +537,155 @@ static void hal_usbd_wakeup_disable(hal_udc_handle *pudc)
 
 static void hal_usbd_deinit(hal_udc_handle *pudc)
 {
-  void(pudc);
+  usbd_type *usbx = pudc->usb_reg;
+
+  /* clear usb interrupt status */
+  usbx->intsts = 0;
+
+  /* set usb packet buffer descirption table address */
+  usbx->buftbl = USB_BUFFER_TABLE_ADDRESS;
+
+  /* enable usb core and set device address to 0 */
+  usbx->devaddr = 0x80;
+
+//  void(pudc);
 }
+
+static void usbd_eptn_handler(hal_udc_handle *pudc, usb_ept_number_type ept_num)
+{
+  usbd_type *usbx = pudc->usb_reg;
+  usb_ept_info *ept_info;
+  uint32_t ept_val = usbx->ept[ept_num];
+  uint16_t length;
+
+  /* in interrupt request  */
+  if(ept_val & USB_TXTC)
+  {
+    /* get endpoint register and in transfer info struct */
+    ept_info = &pudc->ept_in[ept_num];
+
+     /* clear endpoint tc flag */
+    USB_CLEAR_TXTC(ept_num);
+
+    /* get endpoint tx length */
+    ept_info->trans_len = USB_GET_TX_LEN(ept_num);
+
+    /* offset the trans buffer */
+    ept_info->trans_buf += ept_info->trans_len;
+
+    if(ept_info->total_len == 0 || ept_num == USB_EPT0)
+    {
+      /* in transfer complete */
+      hal_udc_data_in_callback(pudc, ept_num);
+    }
+    else
+    {
+      /* endpoint continue send data */
+      hal_usbd_ept_write(pudc, ept_num, ept_info->trans_buf, ept_info->total_len);
+    }
+
+    if(pudc->usb_address != 0)
+    {
+      usb_set_address(pudc->usb_reg, pudc->usb_address);
+      pudc->usb_address = 0;
+    }
+  }
+  else
+  {
+    /* setup and out interrupt request */
+
+    /* get endpoint register and out transfer info struct */
+    ept_info = &pudc->ept_out[ept_num];
+
+    if((ept_val & USB_SETUPTC) != 0)
+    {
+      /* endpoint setup interrupt request */
+
+      /* get endpoint received data length */
+      ept_info->trans_len = USB_GET_RX_LEN(ept_num);
+
+      /* read endpoint received data */
+      usb_read_packet((uint8_t *)pudc->setup_buffer, ept_info->rx_addr, ept_info->trans_len);
+
+      /* clear endpoint rx tc flag */
+      USB_CLEAR_RXTC(USB_EPT0);
+
+      /* endpoint setup complete handler */
+      hal_udc_data_setup_callback(pudc);
+    }
+    else if(ept_val & USB_RXTC )
+    {
+      /* endpoint out interrupt request */
+      USB_CLEAR_RXTC(ept_num);
+
+      if(ept_info->is_double_buffer == 0)
+      {
+        /* get endpoint received data length */
+        length = USB_GET_RX_LEN(ept_num);
+
+        /* read endpoint received data */
+        usb_read_packet(ept_info->trans_buf, ept_info->rx_addr, length);
+      }
+      else
+      {
+        if( ept_val & USB_RXDTS)
+        {
+          length = USB_DBUF0_GET_LEN(ept_num);
+          usb_read_packet(ept_info->trans_buf, ept_info->tx_addr, length);
+        }
+        else
+        {
+          length = USB_DBUF1_GET_LEN(ept_num);
+          usb_read_packet(ept_info->trans_buf, ept_info->rx_addr, length);
+        }
+        USB_FREE_DB_USER_BUFFER(ept_num, DATA_TRANS_OUT);
+      }
+
+      /* set received data length */
+      ept_info->trans_len += length;
+      ept_info->trans_buf += length;
+
+      if(ept_info->total_len == 0 || length < ept_info->maxpacket || ept_num == USB_EPT0)
+      {
+        /* out transfer complete */
+        hal_udc_data_out_callback(pudc, ept_num);
+      }
+      else
+      {
+        /* endpoint continue receive data  */
+        hal_usbd_ept_read(pudc, ept_num, ept_info->trans_buf, ept_info->total_len);
+      }
+    }
+  }
+}
+
+static void usbd_ept_loop_handler(hal_udc_handle *pudc)
+{
+  usbd_type *usbx = pudc->usb_reg;
+  usb_ept_number_type ept_num = USB_EPT0;
+  uint32_t sts_val;
+
+  while((sts_val = usbx->intsts) & USB_TC_FLAG)
+  {
+    /* get the interrupt endpoint number */
+    ept_num = (usb_ept_number_type)(sts_val & USB_EPT_NUM_FLAG);
+
+    usbd_eptn_handler(pudc, ept_num);
+  }
+}
+
+static void usbd_reset_handler(hal_udc_handle *pudc)
+{
+  /* free usb buffer */
+  usb_buffer_free();
+
+  hal_udc_reset_callback(pudc);
+
+  /* set device address to 0 */
+  usb_set_address(pudc->usb_reg, 0);
+
+}
+
 #endif
 
 #if defined OTG1_GLOBAL || defined OTG2_GLOBAL

@@ -15,6 +15,6 @@
 #include <at32f435_437_usb.h>
 #endif
 
-#if defined(CONFIG_SOC_SERIES_AT32F403a_407)
+#if defined(CONFIG_SOC_SERIES_AT32F403A_407)
 #include <at32f403a_407_usb.h>
 #endif
