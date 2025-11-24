@@ -592,11 +592,11 @@
 	AT32_PIN_MUX('A', 13, MUX_0)
 
 /* OTG1_D+ */
-#define OTG1_D+_PA12 \
+#define OTG1_DP_PA12 \
 	AT32_PIN_MUX('A', 12, MUX_10)
 
 /* OTG1_D- */
-#define OTG1_D-_PA11 \
+#define OTG1_DM_PA11 \
 	AT32_PIN_MUX('A', 11, MUX_10)
 
 /* OTG1_ID */
