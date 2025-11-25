@@ -52,6 +52,7 @@ int hal_udc_connect(hal_udc_handle *pudc);
 int hal_udc_disconnect(hal_udc_handle *pudc);
 int hal_udc_start(hal_udc_handle *pudc);
 int hal_udc_stop(hal_udc_handle *pudc);
+int hal_udc_dp_flush(hal_udc_handle *pudc, const uint8_t ep);
 
 
 void hal_udc_data_in_callback(hal_udc_handle *pudc, const uint8_t ep);

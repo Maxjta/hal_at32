@@ -16,6 +16,7 @@ static void hal_usbd_deinit(hal_udc_handle *pudc);
 static void hal_usbd_init(hal_udc_handle *pudc);
 static void hal_usbd_ept_default_init(hal_udc_handle *pudc);
 static void hal_usbd_irq(hal_udc_handle *pudc);
+static int  udc_dp_flush(hal_udc_handle *pudc, const uint8_t ep);
 
 #ifdef USB
 static void usbd_eptn_handler(hal_udc_handle *pudc, usb_ept_number_type ept_num);
@@ -141,6 +142,11 @@ int hal_udc_stop(hal_udc_handle *pudc)
 {
   hal_udc_disconnect(pudc);
 	return 0;
+}
+
+int hal_udc_dp_flush(hal_udc_handle *pudc, const uint8_t ep)
+{
+  return udc_dp_flush(pudc, ep);
 }
 
 __WEAK void hal_udc_data_in_callback(hal_udc_handle *pudc, const uint8_t ep)
@@ -684,6 +690,11 @@ static void usbd_reset_handler(hal_udc_handle *pudc)
   /* set device address to 0 */
   usb_set_address(pudc->usb_reg, 0);
 
+}
+
+static int udc_dp_flush(hal_udc_handle *pudc, const uint8_t ep)
+{
+  return 0;
 }
 
 #endif
@@ -1663,5 +1674,17 @@ static void hal_usbd_irq(hal_udc_handle *pudc)
   
 }
 
+static int udc_dp_flush(hal_udc_handle *pudc, const uint8_t ep)
+{
+  if((ep & 0x80) == 0x80)
+  {
+    usb_flush_tx_fifo(pudc->usb_reg, ep & 0x7F);
+  }
+  else
+  {
+    usb_flush_rx_fifo(pudc->usb_reg);
+  }
+  return 0;
+}
 #endif
 
