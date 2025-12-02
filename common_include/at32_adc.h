@@ -29,4 +29,5 @@
 #if defined(CONFIG_SOC_SERIES_AT32F403A_407)
 #include <at32f403a_407_adc.h>
 #define AT32_ADC_COMM_PSC
+#define AT32_ADC_CRM_DIV
 #endif
