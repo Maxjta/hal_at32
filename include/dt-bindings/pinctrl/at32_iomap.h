@@ -43,7 +43,7 @@
 /** Mode field position. */
 #define AT32_MODE_POS 8U
 /** Remap field mask. */
-#define AT32_REMAP_MSK 0x7FFU
+#define AT32_REMAP_MSK 0x3FFFU
 /** Remap field position. */
 #define AT32_REMAP_POS 10U
 
