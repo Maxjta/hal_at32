@@ -301,6 +301,8 @@ static void hal_usbd_init(hal_udc_handle *pudc)
 
   hal_usbd_ept_default_init(pudc);
 
+  usb_usbbufs_enable(usbx, TRUE);
+
   hal_udc_delay(0);
 
   pudc->usb_address = 0;
