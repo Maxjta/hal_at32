@@ -345,7 +345,7 @@ static void hal_usbd_ept_open(hal_udc_handle *pudc, const uint8_t ep, uint8_t ty
   }
 
   /* set endpoint maxpacket and type */
-  ept_info->maxpacket = maxpacket + 1;
+  ept_info->maxpacket = maxpacket;
   ept_info->trans_type = type;
 
   /* open endpoint */
