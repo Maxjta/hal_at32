@@ -14,3 +14,7 @@
 #if defined(CONFIG_SOC_SERIES_AT32F435_437)
 #include <at32f435_437_scfg.h>
 #endif
+
+#if defined(CONFIG_SOC_SERIES_AT32F45X)
+#include <at32f45x_scfg.h>
+#endif

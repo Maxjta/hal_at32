@@ -31,3 +31,12 @@
 #define AT32_ADC_COMM_PSC
 #define AT32_ADC_CRM_DIV
 #endif
+
+#if defined(CONFIG_SOC_SERIES_AT32F45X)
+#include <at32f45x_adc.h>
+#define AT32_ADC_COMM_PSC
+#define ADC12_ORDINARY_TRIG_SOFTWARE  0x1F
+#define AT32_ADC_5M
+#define ADC_CCE_INT ADC_OCCE_INT
+#define ADC_CCE_FLAG ADC_OCCE_FLAG
+#endif

@@ -23,3 +23,8 @@
 #define CRM_USB_DIV
 #define AT32_PLL_MULT
 #endif
+
+#if defined(CONFIG_SOC_SERIES_AT32F45X)
+#include <at32f45x_crm.h>
+#define CRM_PLL_FU          1
+#endif

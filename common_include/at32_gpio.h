@@ -19,3 +19,7 @@
 #include <at32f403a_407_gpio.h>
 #define AT32_NO_SYSCFG
 #endif
+
+#if defined(CONFIG_SOC_SERIES_AT32F45X)
+#include <at32f45x_gpio.h>
+#endif

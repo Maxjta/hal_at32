@@ -18,3 +18,7 @@
 #if defined(CONFIG_SOC_SERIES_AT32F403a_407)
 #include <at32f403a_407_usart.h>
 #endif
+
+#if defined(CONFIG_SOC_SERIES_AT32F45X)
+#include <at32f45x_usart.h>
+#endif
