@@ -48,7 +48,7 @@ extern "C" {
 #ifdef AT32F405
 #define AT32F405xx
 #endif
-  
+
 #ifdef AT32F402
 #define AT32F402xx
 #endif
